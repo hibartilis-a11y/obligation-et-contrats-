@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Les obligations et les contrats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#1e88e5;
+  --secondary:#43a047;
+  --light:#f4f6f8;
+  --dark:#263238;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--light);
+  color:var(--dark);
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(120deg,var(--primary),var(--secondary));
+  color:white;
+  padding:30px;
+  text-align:center;
+  animation:fadeIn 1s ease-in;
+}
+
+header h1{
+  margin:0;
+  font-size:2.2em;
+}
+
+/* BUTTONS */
+.switch{
+  margin-top:15px;
+}
+.switch button{
+  padding:10px 18px;
+  margin:5px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:white;
+  color:var(--primary);
+  font-weight:600;
+}
+
+/* SECTIONS */
+section{
+  background:white;
+  margin:25px auto;
+  padding:25px;
+  width:90%;
+  max-width:1000px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  animation:slideUp 0.7s ease;
+}
+
+h2{
+  color:var(--primary);
+  border-left:5px solid var(--secondary);
+  padding-left:10px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+th,td{
+  padding:12px;
+  border:1px solid #ddd;
+  text-align:center;
+}
+th{
+  background:var(--primary);
+  color:white;
+}
+
+/* QUIZ */
+.quiz{
+  background:#e3f2fd;
+  padding:20px;
+  border-radius:10px;
+}
+.quiz button{
+  padding:10px 20px;
+  margin:8px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+.true{background:#43a047;color:white;}
+.false{background:#e53935;color:white;}
+.result{
+  margin-top:15px;
+  font-weight:600;
+}
+
+/* MODE INSPECTION */
+.inspection{
+  display:none;
+  background:#fff3e0;
+  border-left:6px solid orange;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes slideUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Chapitre 3 : Les obligations et les contrats</h1>
+  <p>Économie & Organisation Administrative des Entreprises</p>
+  <div class="switch">
+    <button onclick="modeEleve()">🎒 Mode Élève</button>
+    <button onclick="modeInspection()">🧑‍🏫 Mode Inspection</button>
+  </div>
+</header>
+
+<!-- OBJECTIFS INSPECTION -->
+<section class="inspection" id="inspection">
+  <h2>📌 Cadre pédagogique (Inspection)</h2>
+  <ul>
+    <li>Compétence : Identifier et classer les obligations juridiques</li>
+    <li>Approche : Situation-problème + interaction</li>
+    <li>Méthodes : Active, participative, inductive</li>
+    <li>Outils : Numérique, quiz interactif, tableaux</li>
+  </ul>
+</section>
+
+<section>
+  <h2>1️⃣ Notion d’obligation</h2>
+  <p>
+    L’obligation est un <strong>lien de droit</strong> par lequel une personne appelée
+    <strong>débiteur</strong> s’engage à donner, faire ou ne pas faire quelque chose
+    au profit d’un <strong>créancier</strong>.
+  </p>
+</section>
+
+<section>
+  <h2>2️⃣ Classification des obligations</h2>
+  <table>
+    <tr>
+      <th>Critère</th>
+      <th>Type</th>
+      <th>Exemple</th>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>Acte juridique</td>
+      <td>Contrat de vente</td>
+    </tr>
+    <tr>
+      <td>Objet</td>
+      <td>Faire</td>
+      <td>Transporter une marchandise</td>
+    </tr>
+    <tr>
+      <td>Effet</td>
+      <td>Résultat</td>
+      <td>Livrer un bien</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>🧠 Quiz interactif : Vrai / Faux</h2>
+  <div class="quiz">
+    <p><strong>Une obligation légale provient d’un contrat.</strong></p>
+    <button class="false" onclick="check(false)">Faux</button>
+    <button class="true" onclick="check(true)">Vrai</button>
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<script>
+function check(answer){
+  const result=document.getElementById("result");
+  if(answer===false){
+    result.innerHTML="✅ Bonne réponse ! L’obligation légale provient de la loi.";
+    result.style.color="green";
+  }else{
+    result.innerHTML="❌ Faux. Elle provient de la loi et non d’un contrat.";
+    result.style.color="red";
+  }
+}
+
+function modeInspection(){
+  document.getElementById("inspection").style.display="block";
+}
+
+function modeEleve(){
+  document.getElementById("inspection").style.display="none";
+}
+</script>
+
+</body>
+</html>
